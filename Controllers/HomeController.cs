@@ -14,12 +14,12 @@ namespace JobBoard.Controllers
                 List<JobBoardVariable> allJobs = JobBoardVariable.GetAll();
                 return View("JobBoard", allJobs);
             }
-            return View();
+            return View("JobBoard");
         }
         [HttpGet("/addjob")]
         public ActionResult AddJob()
         {  
-            return View();
+            return View("AddJob");
         }
         [HttpPost("/jobboard")]
         public ActionResult CreateAddJob()
