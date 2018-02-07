@@ -1,0 +1,8 @@
+<h1>Job Board.</h1>
+<h2>Job Postings:</h2>
+<ul> 
+   @foreach (var job in Model)
+  {
+    <li>@job.GetJobPost()<ul><li>@job.GetJobDescription()</li></ul></li>
+  }
+</ul>
