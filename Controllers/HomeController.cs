@@ -9,6 +9,11 @@ namespace JobBoard.Controllers
         [HttpGet("/jobboard")]
         public ActionResult JobBoard()
         {
+            if (JobBoardVariable.GetAll() != null)
+            {
+                List<JobBoardVariable> allJobs = JobBoardVariable.GetAll();
+                return View("JobBoard", allJobs);
+            }
             return View();
         }
         [HttpGet("/addjob")]
@@ -23,6 +28,12 @@ namespace JobBoard.Controllers
             myJobBoardVariable.Save();
             List<JobBoardVariable> allJobs = JobBoardVariable.GetAll();
             return View("JobBoard", allJobs);
+        }
+        [HttpPost("/deletejob")]
+        public ActionResult ClearAllJobs()
+        {
+            JobBoardVariable.ClearAll();
+            return View("DeleteJob");
         }
     }
 }
